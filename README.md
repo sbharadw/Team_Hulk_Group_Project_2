@@ -16,4 +16,4 @@
 ![mockup image](Assets/flowchart.png)
 
 ## Authors
-This application was created Satyam, Hanna, Andy and Yaze
+This application was created Satyam, Hanna, Andy, Natalia and Yaze
