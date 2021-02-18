@@ -3,6 +3,7 @@
 // Grabbing our models
 
 const db = require('../models');
+var passport = require("../config/passport");
 
 // Routes
 module.exports = (app) => {
@@ -14,6 +15,14 @@ module.exports = (app) => {
   // POST route for saving a new todo. You can create a todo using the data on req.body
   app.post('/api/todos', (req, res) => {
 
+  });
+
+  app.post("/api/login", passport.authenticate("local"), function(req, res) {
+    
+    res.json({
+      email: req.user.email,
+      id: req.user.id
+    });
   });
 
   // DELETE route for deleting todos. You can access the todo's id in req.params.id
