@@ -1,37 +1,21 @@
 // Dependencies
+const express = require('express');
+const router = express.Router();
+var passport = require("../config/passport");
 
 // Grabbing our models
 
 const db = require('../models');
-var passport = require("../config/passport");
+
 
 // Routes
-module.exports = (app) => {
-  // GET route for getting all of the todos
-  app.get('/api/todos', (req, res) => {
 
+//finds all items and shows user
+router.get('/api/items', (req, res) =>{
+  db.Items.findAll({}).then((items_db) => {
+    res.json(items_db);
   });
+});
 
-  // POST route for saving a new todo. You can create a todo using the data on req.body
-  app.post('/api/todos', (req, res) => {
 
-  });
-
-  app.post("/api/login", passport.authenticate("local"), function(req, res) {
-    
-    res.json({
-      email: req.user.email,
-      id: req.user.id
-    });
-  });
-
-  // DELETE route for deleting todos. You can access the todo's id in req.params.id
-  app.delete('/api/todos/:id', (req, res) => {
-
-  });
-
-  // PUT route for updating todos. The updated todo will be available in req.body
-  app.put('/api/todos', (req, res) => {
-
-  });
-};
+module.exports = router;

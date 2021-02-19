@@ -4,6 +4,10 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+app.use(require('./routes/html-routes.js'));
+app.use(require('./routes/api-routes.js'));
+
+
 // Requiring our models for syncing
 const db = require('./models');
 
@@ -13,9 +17,6 @@ app.use(express.json());
 
 // Static directory
 app.use(express.static('public'));
-
-// Routes
-require('./routes/api-routes.js')(app);
 
 // Syncing our sequelize models and then starting our Express app
 db.sequelize.sync().then(() => {
