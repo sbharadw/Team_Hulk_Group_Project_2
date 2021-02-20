@@ -18,3 +18,13 @@
 ## Authors
 This application was created Satyam, Hanna, Andy, Natalia and Yaze
 
+## Team Members and Responsibilities - 
+
+<ul>
+<li>Hanna - Test Validation/Model/Frontend JS/</li>
+<li>Natalia - HTML Routes/API Routes/Frontend JS</li>
+<li>Andy - User Login/Model/Controllers/Chat</li>
+<li>Yaze - HTML/CSS</li>
+<li>Satyam - Models/Controllers/User Login/Chat/Team Lead </li>
+</ul>
+
