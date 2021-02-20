@@ -1,21 +1,20 @@
 const express = require('express');
 const path = require('path')
 const router = express.Router();
-const exphbs = require('express-handlebars');
 
 //landing page get
 router.get('/', (req, res) =>{
-    res.render('../views/home');
+    res.render('../views/homepage.handlebars');
 })
 
 //registration page get
 router.get('/register', (req, res) =>{
-    res.render('../views/register')
+    res.render('../views/register.handlebars')
 })
 
 //login page get
 router.get('/log-in', (req, res) =>{
-    res.render('../views/log-in')
+    res.render('../views/log-in.handlebars')
 })
 
 //sell item page get
