@@ -1,8 +1,18 @@
 const express = require('express');
+const exphbs = require('express-handlebars');
 
 // Sets up the Express App
 const app = express();
 const PORT = process.env.PORT || 8080;
+
+
+// Configure template Engine and Main Template File
+app.engine('handlebars', exphbs({
+  defaultLayout: 'main',
+  extname: '.handlebars'
+}));
+// Setting template Engine
+app.set('view engine', 'handlebars');
 
 app.use(require('./routes/html-routes.js'));
 app.use(require('./routes/api-routes.js'));
