@@ -1,3 +1,18 @@
+/**
+ * @function
+ * @returns @var - returns the Seller table with its columns.
+ * @description - We export a function that takes in 2 variables (parameters) -
+                                       1. sequelize,
+                                       2. DataTypes
+ * These parameters are provided to us automatically by index.js
+ * Inside of our function we run the “sequelize.define” method. 
+ * We pass it two arguments. The name of our model as a string, and an object 
+   describing our model’s schema. Each property will represent a column in the database.
+ * @param sequelize - in this case is actually our connection to our database. 
+ * @param DataTypes - DataTypes will be used to define what type of data each property on our 
+                      model should be. http://docs.sequelizejs.com/en/latest/api/datatypes/#string
+ */
+
 module.exports = (sequelize, DataTypes) => {
 
     const Seller = sequelize.define('Seller', {
@@ -5,8 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Seller.associate = (models) => {
-        // We're saying that a Seller should belong to an User
-        // A Seller can't be created without a User due to the foreign key constraint
+        
         UserLogin.belongsTo(models.User, {
           foreignKey: {
             allowNull: true,
@@ -16,8 +30,7 @@ module.exports = (sequelize, DataTypes) => {
     
 
     Seller.associate = () => {
-        // Associating User with UserLogin
-        // When a User is deleted, also delete the associated UserLogin
+        
         Seller.hasMany(models.Order, {
           onDelete: 'cascade',
         });
