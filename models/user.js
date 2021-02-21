@@ -1,3 +1,19 @@
+/**
+ * @function
+ * @returns @var - returns the User table with its columns.
+ * @description - We export a function that takes in 2 variables (parameters) -
+                                       1. sequelize,
+                                       2. DataTypes
+ * These parameters are provided to us automatically by index.js
+ * Inside of our function we run the “sequelize.define” method. 
+ * We pass it two arguments. The name of our model as a string, and an object 
+   describing our model’s schema. Each property will represent a column in the database.
+ * @param sequelize - in this case is actually our connection to our database. 
+ * @param DataTypes - DataTypes will be used to define what type of data each property on our 
+                      model should be. http://docs.sequelizejs.com/en/latest/api/datatypes/#string
+ */
+
+
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define('User', {
       first_name: {
@@ -80,32 +96,28 @@ module.exports = (sequelize, DataTypes) => {
     });
   
     User.associate = () => {
-      // Associating User with UserLogin
-      // When a User is deleted, also delete the associated UserLogin
+      
       User.hasOne(models.UserLogin, {
         onDelete: 'cascade',
       });
     };
 
     User.associate = () => {
-        // Associating User with UserLogin
-        // When a User is deleted, also delete the associated UserLogin
+       
         User.hasOne(models.Seller, {
           onDelete: 'cascade',
         });
       };
 
     User.associate = () => {
-        // Associating User with UserLogin
-        // When a User is deleted, also delete the associated UserLogin
+        
         User.hasOne(models.Buyer, {
           onDelete: 'cascade',
         });
       };
 
     User.associate = () => {
-        // Associating User with UserLogin
-        // When a User is deleted, also delete the associated UserLogin
+        
         User.hasMany(models.Item, {
           onDelete: 'cascade',
         });
@@ -113,3 +125,4 @@ module.exports = (sequelize, DataTypes) => {
   
     return User;
   };
+

@@ -1,11 +1,25 @@
+/**
+ * @function
+ * @returns @var - returns the Order table with its columns.
+ * @description - We export a function that takes in 2 variables (parameters) -
+                                       1. sequelize,
+                                       2. DataTypes
+ * These parameters are provided to us automatically by index.js
+ * Inside of our function we run the “sequelize.define” method. 
+ * We pass it two arguments. The name of our model as a string, and an object 
+   describing our model’s schema. Each property will represent a column in the database.
+ * @param sequelize - in this case is actually our connection to our database. 
+ * @param DataTypes - DataTypes will be used to define what type of data each property on our 
+                      model should be. http://docs.sequelizejs.com/en/latest/api/datatypes/#string
+ */
+
 module.exports = (sequelize, DataTypes) => {
     const Order = sequelize.define('Order', {
       price: DataTypes.INTEGER,
     });
   
     Order.associate = (models) => {
-        // We're saying that a Order should belong to an User
-        // An order can't be created without a user due to the foreign key constraint
+        
         Order.belongsTo(models.Seller, {
           foreignKey: {
             allowNull: true,
@@ -14,8 +28,7 @@ module.exports = (sequelize, DataTypes) => {
       };
     
       Order.associate = (models) => {
-        // We're saying that a  should belong to an User
-        // A Seller can't be created without a User due to the foreign key constraint
+        
         Order.belongsTo(models.Buyer, {
           foreignKey: {
             allowNull: true,
@@ -24,8 +37,7 @@ module.exports = (sequelize, DataTypes) => {
       };
 
       Order.associate = (models) => {
-        // We're saying that a  should belong to an User
-        // A Seller can't be created without a User due to the foreign key constraint
+        
         Order.belongsTo(models.Item, {
           foreignKey: {
             allowNull: true,
