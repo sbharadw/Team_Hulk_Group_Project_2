@@ -1,9 +1,30 @@
 module.exports = (sequelize, DataTypes) => {
 
     const UserLogin = sequelize.define('UserLogin', {
-      username: DataTypes.STRING,
-      email: DataTypes.STRING,
-      password: DataTypes.STRING,
+      username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate:{
+          len: [2],
+          notEmpty: true
+        }
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          isEmail: true,
+          notEmpty: true
+        }
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate:{
+          len: [6],
+          notEmpty: true
+        }
+      },
     });
 
     UserLogin.associate = (models) => {
