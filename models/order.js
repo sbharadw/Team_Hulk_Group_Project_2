@@ -14,38 +14,74 @@
  */
 
 module.exports = (sequelize, DataTypes) => {
-    const Order = sequelize.define('Order', {
-      price: DataTypes.INTEGER,
+  const Order = sequelize.define("Order", {
+    date: {
+      type: DataTypes.DATEONLY,//DATETIME is also option
+      validate: {
+        len: [8],
+        notEmpty: true,
+      },
+    },
+
+    price: {
+      type: DataTypes.INTEGER, //
+      allowNull: false,
+      validate: {
+        len: [2, 10],
+        isNumeric: true,
+        notEmpty: true,
+      },
+    },
+
+    shipping_address: {
+      type: DataTypes.STRING,
+      validate: {
+        len: [2, 50],
+        isAlphanumeric: true,
+        notEmpty: true,
+      },
+    },
+    shipping_city: {
+      type: DataTypes.STRING,
+      validate: {
+        len: [2, 20],
+        isAlpha: true,
+        notEmpty: true,
+      },
+    },
+    shipping_state: {
+      type: DataTypes.STRING,
+      validate: {
+        len: [2],
+        isAlpha: true,
+        notEmpty: true,
+      },
+    },
+  });
+
+  Order.associate = (models) => {
+    Order.belongsTo(models.Seller, {
+      foreignKey: {
+        allowNull: true,
+      },
     });
-  
-    Order.associate = (models) => {
-        
-        Order.belongsTo(models.Seller, {
-          foreignKey: {
-            allowNull: true,
-          },
-        });
-      };
-    
-      Order.associate = (models) => {
-        
-        Order.belongsTo(models.Buyer, {
-          foreignKey: {
-            allowNull: true,
-          },
-        });
-      };
-
-      Order.associate = (models) => {
-        
-        Order.belongsTo(models.Item, {
-          foreignKey: {
-            allowNull: true,
-          },
-        });
-      };
-
-
-  
-    return Order;
   };
+
+  Order.associate = (models) => {
+    Order.belongsTo(models.Buyer, {
+      foreignKey: {
+        allowNull: true,
+      },
+    });
+  };
+
+  Order.associate = (models) => {
+    Order.belongsTo(models.Item, {
+      foreignKey: {
+        allowNull: true,
+      },
+    });
+  };
+
+  return Order;
+};
