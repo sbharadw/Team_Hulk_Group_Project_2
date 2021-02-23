@@ -1,7 +1,7 @@
 // Dependencies
 const express = require('express');
 const router = express.Router();
-var passport = require("../config/passport");
+//var passport = require("../config/passport");
 
 // Grabbing our models
 const db = require('../models');

@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
       };
 
 
-    ItemCategory.associate = () => {
+    ItemCategory.associate = (models) => {
         
         ItemCategory.hasMany(models.Item, {
           onDelete: 'SET NULL',

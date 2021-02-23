@@ -14,9 +14,10 @@ app.engine('handlebars', exphbs({
 // Setting template Engine
 app.set('view engine', 'handlebars');
 
-app.use(require('./routes/html-routes.js'));
-app.use(require('./routes/api-routes.js'));
-
+app.use(require('./controllers/html-routes.js'));
+app.use(require('./controllers/item-api-routes.js'));
+app.use(require('./controllers/order-api-routes.js'));
+app.use(require('./controllers/user-api-routes.js'));
 
 // Requiring our models for syncing
 const db = require('./models');
@@ -29,6 +30,6 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // Syncing our sequelize models and then starting our Express app
-db.sequelize.sync().then(() => {
+db.sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
 });
