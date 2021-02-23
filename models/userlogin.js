@@ -39,8 +39,6 @@ module.exports = (sequelize, DataTypes) => {
         validate:{
           len: [6, 10],
           notEmpty: true
-        //  isLowercase: true,        
-         // isUppercase: true
         }
       },
     });

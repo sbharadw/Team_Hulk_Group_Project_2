@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
       };
 
 
-    Buyer.associate = () => {
+    Buyer.associate = (models) => {
     
         Buyer.hasMany(models.Order, {
           onDelete: 'SET NULL',

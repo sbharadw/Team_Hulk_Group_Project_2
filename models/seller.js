@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
       };
     
 
-    Seller.associate = () => {
+    Seller.associate = (models) => {
         
         Seller.hasMany(models.Order, {
           onDelete: 'cascade',

@@ -73,13 +73,13 @@ module.exports = (sequelize, DataTypes) => {
         }
       },
       cell_number: {
-        type: Sequelize.ARRAY(Sequelize.STRING),
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: true,
         unique: true,
         validate: {
           notEmpty: true,
 
-          isPhoneNum = (value) => {
+          isPhoneNum: (value) => {
             if (!value) return value;
 
             var regexp = /^[0-9]+$/;
@@ -95,28 +95,28 @@ module.exports = (sequelize, DataTypes) => {
       }
     });
   
-    User.associate = () => {
+    User.associate = (models) => {
       
       User.hasOne(models.UserLogin, {
         onDelete: 'cascade',
       });
     };
 
-    User.associate = () => {
+    User.associate = (models) => {
        
         User.hasOne(models.Seller, {
           onDelete: 'cascade',
         });
       };
 
-    User.associate = () => {
+    User.associate = (models) => {
         
         User.hasOne(models.Buyer, {
           onDelete: 'cascade',
         });
       };
 
-    User.associate = () => {
+    User.associate = (models) => {
         
         User.hasMany(models.Item, {
           onDelete: 'cascade',
