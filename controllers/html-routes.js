@@ -2,6 +2,10 @@ const express = require('express');
 const path = require('path')
 const router = express.Router();
 
+
+// Requiring our custom middleware for checking if a user is logged in
+const isAuthenticated = require("../config/middleware/isAuthenticated");
+
 //landing page get
 router.get('/', (req, res) =>{
     res.render('../views/homepage');
@@ -18,7 +22,7 @@ router.get('/log-in', (req, res) =>{
 })
 
 //sell item page get
-router.get('/sell', (req, res) =>{
+router.get('/buy', isAuthenticated, (req, res) =>{
     res.render('../views/sell')
 })
 

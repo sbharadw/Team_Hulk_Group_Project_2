@@ -43,6 +43,19 @@ module.exports = (sequelize, DataTypes) => {
       },
     });
 
+      // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
+  UserLogin.prototype.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.password);
+  };
+  // Before a User is created, we will automatically hash their password
+  UserLogin.addHook("beforeCreate", user => {
+    user.password = bcrypt.hashSync(
+      user.password,
+      bcrypt.genSaltSync(10),
+      null
+    );
+  });
+
     UserLogin.associate = (models) => {
 
         UserLogin.belongsTo(models.User, {
