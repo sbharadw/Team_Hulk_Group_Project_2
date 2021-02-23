@@ -73,10 +73,11 @@ module.exports = (sequelize, DataTypes) => {
         }
       },
       cell_number: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
-        allowNull: true,
+        type: DataTypes.STRING,
+        allowNull: false,
         unique: true,
         validate: {
+          
           notEmpty: true,
 
           isPhoneNum: (value) => {
