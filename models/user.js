@@ -74,10 +74,25 @@ module.exports = (sequelize, DataTypes) => {
       },
       cell_number: {
         type: DataTypes.STRING,
-        allowNull: true,
-        validate:{
-          len: [9, 12]
-        }
+        allowNull: false,
+        unique: true,
+        validate: {
+          
+          notEmpty: true,
+
+          isPhoneNum: (value) => {
+            if (!value) return value;
+
+            var regexp = /^[0-9]+$/;
+            var values = (Array.isArray(value)) ? value : [value];
+
+            values.forEach(function(val) {
+                if (!regexp.test(val)) {
+                    throw new Error("Number only is allowed.");
+                }
+            });
+            return value;
+        }}
       }
     });
   
