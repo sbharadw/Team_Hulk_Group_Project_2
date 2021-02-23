@@ -1,5 +1,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
+const session = require("express-session");
+const passport = require("./config/passport")
 
 // Sets up the Express App
 const app = express();
