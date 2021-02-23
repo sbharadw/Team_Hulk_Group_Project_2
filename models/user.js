@@ -104,7 +104,6 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     User.associate = (models) => {
-       
         User.hasOne(models.Seller, {
           onDelete: 'cascade',
         });
