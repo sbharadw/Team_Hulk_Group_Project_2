@@ -8,22 +8,17 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 //landing page get
 router.get('/', (req, res) =>{
-    res.render('../views/homepage');
+    res.render('../views/login');
 })
 
-//registration page get
-router.get('/register', (req, res) =>{
-    res.render('../views/register')
+//homepage item page get
+router.get('/homepage', isAuthenticated, (req, res) =>{
+    res.render('../views/homepage')
 })
 
-//login page get
-router.get('/log-in', (req, res) =>{
-    res.render('../views/log-in')
-})
-
-//sell item page get
+//buy item page get
 router.get('/buy', isAuthenticated, (req, res) =>{
-    res.render('../views/sell')
+    res.render('../views/buy')
 })
 
 //about page get
