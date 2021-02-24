@@ -93,4 +93,13 @@ router.put('/api/users/:id', passport.authenticate("local"), (req, res) => {
   ).then((dbUser) => res.json(dbUser));
 });
 
+router.post('/api/UserLogin',(req, res) => {
+  db.UserLogin.create(
+    {
+      email: req.body.email,
+      password: req.body.password
+    }
+  ).then((dbUserLogin) => res.json(dbUserLogin))
+});
+
 module.exports = router;

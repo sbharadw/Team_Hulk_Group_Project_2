@@ -12,12 +12,12 @@ router.get('/', (req, res) =>{
 })
 
 //homepage item page get
-router.get('/homepage', isAuthenticated, (req, res) =>{
+router.get('/homepage', (req, res) =>{
     res.render('../views/homepage')
 })
 
 //buy item page get
-router.get('/buy', isAuthenticated, (req, res) =>{
+router.get('/buy', (req, res) =>{
     res.render('../views/buy')
 })
 
