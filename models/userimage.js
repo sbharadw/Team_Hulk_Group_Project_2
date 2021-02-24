@@ -2,7 +2,7 @@ module.exports = (sequelize, DataTypes) => {
 
     const Userimage = sequelize.define('Userimage', {
 
-      title: {
+      url: {
         type: DataTypes.STRING,
         validate:{
           len: [2],
