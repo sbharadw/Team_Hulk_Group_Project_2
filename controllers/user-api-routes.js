@@ -1,7 +1,7 @@
 // Dependencies
 const express = require('express');
 const router = express.Router();
-//var passport = require("../config/passport");
+const passport = require("../config/passport");
 
 // Grabbing our models
 const db = require('../models');
@@ -59,7 +59,7 @@ router.get('/api/users', (req, res) => {
  * @param api url, function with request and response parameters 
  * @var dbUser - response for User table
  */
-router.delete('/api/users/:id', (req, res) => {
+router.delete('/api/users/:id', passport.authenticate("local"), (req, res) => {
   db.User.destroy({
     where: {
       id: req.params.id,
@@ -73,7 +73,7 @@ router.delete('/api/users/:id', (req, res) => {
  * @param api url, function with request and response parameters 
  * @var dbUser - response for User table
  */
-router.put('/api/users/:id', (req, res) => {
+router.put('/api/users/:id', passport.authenticate("local"), (req, res) => {
   db.User.update(
     {
       first_name: req.body.first_name,
