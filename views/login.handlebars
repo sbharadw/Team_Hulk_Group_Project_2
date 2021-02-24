@@ -4,6 +4,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
+
+
 <body>
 
     <div class="w3-container">
@@ -19,11 +21,11 @@
                 <div class="w3-center"><br>
                     <span onclick="document.getElementById('id01').style.display='none'"
                         class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
-                    <img src="img_avatar4.png" alt="App Logo or User Pic" style="width:30%"
+                    <img src="" alt="App Logo or User Pic" style="width:30%"
                         class="w3-circle w3-margin-top">
                 </div>
 
-                <form class="w3-container" action="/action_page.php">
+                <form class="w3-container" action="/homepage">
                     <div class="w3-section">
                         <label><b>Username</b></label>
                         <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username"
@@ -54,14 +56,14 @@
                     <img src="img_avatar4.png" alt="App logo" style="width:30%" class="w3-circle w3-margin-top">
                 </div>
 
-                <form class="w3-container" action="/action_page.php">
+                <form class="w3-container" action="/homepage">
                     <div class="w3-section">
                         <label><b>Email</b></label>
-                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Email"
+                        <input id="email-input" class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Email"
                             name="email" required>
                         <label><b>Password</b></label>
-                        <input class="w3-input w3-border" type="text" placeholder="Enter Password" name="psw" required>
-                        <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Sign up and Log
+                        <input id="password-input" class="w3-input w3-border" type="text" placeholder="Enter Password" name="psw" required>
+                        <button id="signup" class="w3-button w3-block w3-green w3-section w3-padding" type="submit" action="/homepage">Sign up and Log
                             me in!</button>
                     </div>
                 </form>
@@ -74,6 +76,10 @@
             </div>
         </div>
     </div>
+
+<script src="../public/js/login.js"></script>
+<script src="../public/js/signup.js"></script>
+
 
 </body>
 
