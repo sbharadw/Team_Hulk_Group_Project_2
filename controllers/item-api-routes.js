@@ -1,7 +1,7 @@
 // Dependencies
 const express = require('express');
 const router = express.Router();
-//var passport = require("../config/passport");
+const passport = require("../config/passport");
 
 // Grabbing our models
 const db = require('../models');
@@ -16,7 +16,7 @@ const db = require('../models');
  * @param api url, function with request and response parameters 
  * @var dbItem - response for Item table
  */
-router.post('/api/items', (req, res) => {
+router.post('/api/items', passport.authenticate("local"), (req, res) => {
     db.Item.create({
       title: req.body.title,
       description: req.body.description,
@@ -32,7 +32,7 @@ router.post('/api/items', (req, res) => {
    * @param api url, function with request and response parameters 
    * @var dbItem - response for Item table
    */
-  router.get('/api/items/:id', (req, res) => {
+  router.get('/api/items/:id', passport.authenticate("local"), (req, res) => {
     db.Item.findOne({
       where: {
         id: req.params.id,
@@ -46,7 +46,7 @@ router.post('/api/items', (req, res) => {
  * @param api url, function with request and response parameters 
  * @var dbItem - response for Item table
  */
-router.get('/api/items', (req, res) => {
+router.get('/api/items', passport.authenticate("local"), (req, res) => {
     db.Item.findAll({}).then((dbItem) => { res.json(dbItem)});
   });
   
@@ -57,7 +57,7 @@ router.get('/api/items', (req, res) => {
    * @param api url, function with request and response parameters 
    * @var dbItem - response for Item table
    */
-  router.delete('/api/items/:id', (req, res) => {
+  router.delete('/api/items/:id', passport.authenticate("local"), (req, res) => {
     db.Item.destroy({
       where: {
         id: req.params.id,
@@ -71,7 +71,7 @@ router.get('/api/items', (req, res) => {
    * @param api url, function with request and response parameters 
    * @var dbItem - response for Item table
    */
-  router.put('/api/items/:id', (req, res) => {
+  router.put('/api/items/:id', passport.authenticate("local"), (req, res) => {
     db.Item.update(
       {
         title: req.body.title,
