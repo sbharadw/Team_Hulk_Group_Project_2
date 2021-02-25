@@ -5,44 +5,18 @@ module.exports = (sequelize, DataTypes) => {
       url: {
         type: DataTypes.STRING,
         validate:{
-          len: [2],
-          notEmpty: true
-        }
-      },
-
-      description: {
-        type: DataTypes.STRING,
-        validate:{
-          len: [2],
-          notEmpty: true
-        }
-      },
-
-      item_type: {
-        type: DataTypes.STRING,
-        validate:{
-          len: [2],
-          notEmpty: true
+        isUrl: true,
+        notEmpty: true
         }
       }
 
     });
 
-    Item.associate = (models) => {
+    Userimage.associate = (models) => {
         
-        Item.belongsTo(models.User, {
+        Userimage.belongsTo(models.User, {
           foreignKey: {
-            allowNull: false,
-          },
-        });
-      };
-
-
-    Item.associate = (models) => {
-        
-        Item.belongsTo(models.ItemCategory, {
-          foreignKey: {
-            allowNull: false,
+            allowNull: true,
           },
         });
       };

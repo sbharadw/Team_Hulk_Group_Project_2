@@ -47,7 +47,7 @@ module.exports = (sequelize, DataTypes) => {
         
         Item.belongsTo(models.User, {
           foreignKey: {
-            allowNull: false,
+            allowNull: true,
           },
         });
       };
@@ -62,6 +62,14 @@ module.exports = (sequelize, DataTypes) => {
         });
       };
     
+    Item.associate = (models) => {
+        
+        Item.hasMany(models.Itemimage, {
+          onDelete: 'cascade',
+        });
+      };
+
+
     return Item;
   
 };
