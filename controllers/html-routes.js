@@ -13,7 +13,7 @@ router.get('/', (req, res) =>{
 
 //homepage item page get
 router.get('/homepage', (req, res) =>{
-    res.render('../views/homepage')
+    res.sendFile(path.join(__dirname, "../public/homepage.html"))
 })
 
 //buy item page get
