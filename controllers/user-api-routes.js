@@ -19,6 +19,7 @@ const db = require('../models');
 router.post('/api/users', (req, res) => {
   db.User.create({
     first_name: req.body.first_name,
+    password: req.body.password,
     last_name: req.body.last_name,
     email: req.body.email,
     address: req.body.address,
