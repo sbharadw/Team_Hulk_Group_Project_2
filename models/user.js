@@ -32,6 +32,14 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true
         }
       },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate:{
+          len: [6, 10],
+          notEmpty: true
+        }
+      },
       last_name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -117,6 +125,13 @@ module.exports = (sequelize, DataTypes) => {
     User.associate = (models) => {
         
         User.hasMany(models.Item, {
+          onDelete: 'cascade',
+        });
+      };
+
+    User.associate = (models) => {
+        
+        User.hasMany(models.Userimage, {
           onDelete: 'cascade',
         });
       };
