@@ -1,7 +1,6 @@
 // Dependencies
 const express = require('express');
 const router = express.Router();
-const passport = require("../config/passport");
 
 // Grabbing our models
 const db = require('../models');
@@ -16,7 +15,7 @@ const db = require('../models');
  * @param api url, function with request and response parameters 
  * @var dbOrder - response for Order table
  */
-router.post('/api/orders', passport.authenticate("local"), (req, res) => {
+router.post('/api/orders', (req, res) => {
   db.Order.create({
     date: req.body.date,
     price: req.body.price,
@@ -36,7 +35,7 @@ router.post('/api/orders', passport.authenticate("local"), (req, res) => {
  * @param api url, function with request and response parameters 
  * @var dbOrder - response for Order table
  */
-router.get('/api/Orders/:id', passport.authenticate("local"), (req, res) => {
+router.get('/api/Orders/:id', (req, res) => {
   db.Order.findOne({
     where: {
       id: req.params.id,
@@ -50,7 +49,7 @@ router.get('/api/Orders/:id', passport.authenticate("local"), (req, res) => {
  * @param api url, function with request and response parameters 
  * @var dbOrder - response for Order table
  */
-router.get('/api/Orders', passport.authenticate("local"), (req, res) => {
+router.get('/api/Orders', (req, res) => {
   db.Order.findAll({}).then((dbOrder) => res.json(dbOrder));
 });
 
@@ -60,7 +59,7 @@ router.get('/api/Orders', passport.authenticate("local"), (req, res) => {
  * @param api url, function with request and response parameters 
  * @var dbOrder - response for Order table
  */
-router.delete('/api/Orders/:id', passport.authenticate("local"), (req, res) => {
+router.delete('/api/Orders/:id', (req, res) => {
   db.Order.destroy({
     where: {
       id: req.params.id,
@@ -74,7 +73,7 @@ router.delete('/api/Orders/:id', passport.authenticate("local"), (req, res) => {
  * @param api url, function with request and response parameters 
  * @var dbOrder - response for Order table
  */
-router.put('/api/Orders/:id', passport.authenticate("local"), (req, res) => {
+router.put('/api/Orders/:id', (req, res) => {
   db.Order.update(
     {
       first_name: req.body.first_name,

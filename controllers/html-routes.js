@@ -8,7 +8,7 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 //landing page get
 router.get('/', (req, res) =>{
-    res.render('../views/login');
+    res.sendFile(path.join(__dirname, "../public/login.html"))
 })
 
 //homepage item page get

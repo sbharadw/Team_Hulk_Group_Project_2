@@ -1,7 +1,7 @@
 // Dependencies
 const express = require('express');
 const router = express.Router();
-const passport = require("../config/passport");
+const bodyparser = require('body-parser');
 
 // Grabbing our models
 const db = require('../models');
@@ -17,6 +17,8 @@ const db = require('../models');
  * @var dbUser - response for User table
  */
 router.post('/api/users', (req, res) => {
+  console.log("user req -------------------------" + req.body.first_name);
+
   db.User.create({
     first_name: req.body.first_name,
     password: req.body.password,
@@ -60,7 +62,8 @@ router.get('/api/users', (req, res) => {
  * @param api url, function with request and response parameters 
  * @var dbUser - response for User table
  */
-router.delete('/api/users/:id', passport.authenticate("local"), (req, res) => {
+
+router.delete('/api/users/:id', (req, res) => {
   db.User.destroy({
     where: {
       id: req.params.id,
@@ -74,7 +77,7 @@ router.delete('/api/users/:id', passport.authenticate("local"), (req, res) => {
  * @param api url, function with request and response parameters 
  * @var dbUser - response for User table
  */
-router.put('/api/users/:id', passport.authenticate("local"), (req, res) => {
+router.put('/api/user/:id', (req, res) => {
   db.User.update(
     {
       first_name: req.body.first_name,
