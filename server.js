@@ -1,17 +1,21 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const session = require("express-session");
-const passport = require("./config/passport")
+const passport = require("./config/passport");
+const bodyParser = require('body-parser');
+// const helpers = require('handlebars-helpers')
 
 // Sets up the Express App
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Configure template Engine and Main Template File
 app.engine('handlebars', exphbs({
   defaultLayout: 'main',
-  extname: '.handlebars'
+  extname: '.handlebars',
 }));
 // Setting template Engine
 app.set('view engine', 'handlebars');
@@ -23,10 +27,6 @@ app.use(require('./controllers/user-api-routes.js'));
 
 // Requiring our models for syncing
 const db = require('./models');
-
-// Sets up the Express app to handle data parsing
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
 // Static directory
 app.use(express.static('public'));
