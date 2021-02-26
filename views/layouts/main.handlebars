@@ -1,5 +1,5 @@
-
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <title>Log In page</title>
@@ -12,5 +12,92 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script name="register">
+        $(document).ready(() => {
+            // Getting references to our form and input
+
+            console.log("working")
+
+            const signUpForm = $("#signup");
+            const emailInput = $("#email-input");
+            const passwordInput = $("#password-input");
+            const passwordConfirm = $("#confirm-password");
+            const firstName = $("#first-name");
+            const lastName = $("#last-name");
+            const cellNum = $("#cellnum");
+            const zip = $("#zip");
+            const address = $("#address");
+            const city = $("#city");
+            const state = $("#state");
+
+
+
+            // When the signup button is clicked, we validate the email and password are not blank
+            signUpForm.on("click", event => {
+                event.preventDefault();
+
+                const userData = {
+                    email: emailInput.val().trim(),
+                    password: passwordInput.val().trim(),
+                    firstName: firstName.val().trim(),
+                    lastName: lastName.val().trim(),
+                    cellNum: cellNum.val().trim(),
+                    zip: zip.val().trim(),
+                    address: address.val().trim(),
+                    city: city.val().trim(),
+                    state: state.val().trim(),
+                };
+
+                console.log(userData);
+                console.log(userLoginData);
+
+                if (!userData.email || !userData.password) {
+                    return;
+                }
+                if (passwordInput.val().trim() != passwordConfirm.val().trim()) {
+                    return;
+                }
+                // If we have an email and password, run the signUpUser function
+                signUpUser(userData.email, userData.password, userData.firstName, userData.lastName,
+                    userData.cellNum, userData.zip, userData.address, userData.city, userData.state);
+                emailInput.val("");
+                passwordInput.val("");
+                firstName.val("");
+                lastName.val("");
+                zip.val("");
+                address.val("");
+                city.val("");
+                state.val("");
+            });
+
+            // Does a post to the signup route. If successful, we are redirected to the members page
+            // Otherwise we log any errors
+            function signUpUser(email, password, firstName, lastName, cellNum, zip, address, city, state) {
+                $.post("/api/UserLogin", {
+                        email: email,
+                        password: password,
+                        first_name: firstName,
+                        last_name: lastName,
+                        cell_number: cellNum,
+                        zipcode: zip,
+                        address: address,
+                        city: city,
+                        state: state,
+                    })
+                    .then(() => {
+                        window.location.replace("/homepage");
+                        // If there's an error, handle it by throwing up a bootstrap alert
+                    })
+                    .catch(handleLoginErr);
+            }
+            function handleLoginErr(err) {
+                $("#alert .msg").text(err.responseJSON);
+                $("#alert").fadeIn(500);
+            };
+        });
+    </script>
+
+
 </body>
+
 </html>

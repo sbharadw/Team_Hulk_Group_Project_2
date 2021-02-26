@@ -20,7 +20,15 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         validate:{
-          len: [2],
+          len: [2, 120],
+          notEmpty: true
+        }
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate:{
+          len: [6, 100],
           notEmpty: true
         }
       },
@@ -28,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         validate:{
-          len: [2],
+          len: [2, 120],
           notEmpty: true
         }
       },
@@ -44,31 +52,28 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: true,
         validate:{
-          len: [2],
-          notEmpty: true
+          len: [2, 120],
         }
       },
       city: {
         type: DataTypes.STRING,
         allowNull: true,
         validate:{
-          len: [2],
-          notEmpty: true
+          len: [2, 120],
         }
       },
       state: {
         type: DataTypes.STRING,
         allowNull: true,
         validate:{
-          len: [2],
-          notEmpty: true
+          len: [2, 120],
         }
       },
       zipcode: {
         type: DataTypes.STRING,
         allowNull: false,
         validate:{
-          len: [5],
+          len: [5, 120],
           notEmpty: true
         }
       },
@@ -95,13 +100,6 @@ module.exports = (sequelize, DataTypes) => {
         }}
       }
     });
-  
-    User.associate = (models) => {
-      
-      User.hasOne(models.UserLogin, {
-        onDelete: 'cascade',
-      });
-    };
 
     User.associate = (models) => {
         User.hasOne(models.Seller, {
