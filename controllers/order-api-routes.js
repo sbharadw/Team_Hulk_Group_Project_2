@@ -15,17 +15,20 @@ const db = require('../models');
  * @param api url, function with request and response parameters 
  * @var dbOrder - response for Order table
  */
+
+ //Made some temp. changes ----- Still working on it 
+
+ 
 router.post('/api/orders', (req, res) => {
   db.Order.create({
-    date: req.body.date,
     price: req.body.price,
-    shipping_address: req.body.shipping_address,
-    shipping_city: req.body.shipping_city,
-    shipping_state: req.body.shipping_state,
-    item_id: req.body.item_id,
-    buyer_id: req.body.buyer_id,
-    seller_id: req.body.seller_id,
-    shipping_id: req.body.shipping_id,
+    //shipping_address: req.body.shipping_address,
+    //shipping_city: req.body.shipping_city,
+    //shipping_state: req.body.shipping_state,
+    //item_id: req.body.item_id,
+    //buyer_id: req.body.buyer_id,
+    //seller_id: req.body.seller_id, sss
+    //shipping_id: req.body.shipping_id,
   }).then((dbOrder) => res.json(dbOrder));
 });
 
