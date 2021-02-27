@@ -55,6 +55,8 @@ console.log("requested body ===========" + req.body)
   router.get('/api/items', (req, res) => {
     db.Item.findAll({}).then((dbItem) => { res.json(dbItem)});
   });
+
+
   
   /**
    * @method
