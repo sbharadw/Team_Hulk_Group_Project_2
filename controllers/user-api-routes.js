@@ -1,8 +1,8 @@
+
 // Dependencies
 const express = require('express');
 const router = express.Router();
-const bodyparser = require('body-parser');
-
+const passport = require("../config/passport")
 // Grabbing our models
 const db = require('../models');
 
@@ -19,7 +19,10 @@ const db = require('../models');
 
 
 router.post('/api/users', (req, res) => {
-  console.log("requested body ==========" + req.body)
+  console.log("step 2")
+  console.log("87888888888888888888888888888888888888888888888888888888888888888888888888888888888888888")
+  console.log(req)
+  console.log("requested body ==========" + req.body.last_name)
 
   db.User.create({
     first_name: req.body.first_name,
@@ -31,7 +34,29 @@ router.post('/api/users', (req, res) => {
     state: req.body.state,
     zipcode: req.body.zipcode,
     cell_number: req.body.cell_number
-  }).then((dbUser) => res.json(dbUser));
+  }).then((dbUser) => {
+    console.log("step 3")
+
+    console.log(dbUser)
+    
+    res.json(dbUser)
+  })
+.catch(err => {
+    res.status(401).json(err);
+  });
+});
+
+router.post('/api/login', passport.authenticate("local"), (req, res) => {
+  console.log("user req---------------------------" + req.user);
+  res.json({
+    email: req.user.email,
+    id: req.user.id
+  });
+});
+
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect("/");
 });
 
 /**
@@ -97,15 +122,6 @@ router.put('/api/user/:id', (req, res) => {
       },
     }
   ).then((dbUser) => res.json(dbUser));
-});
-
-router.post('/api/UserLogin',(req, res) => {
-  db.UserLogin.create(
-    {
-      email: req.body.email,
-      password: req.body.password
-    }
-  ).then((dbUserLogin) => res.json(dbUserLogin))
 });
 
 module.exports = router;

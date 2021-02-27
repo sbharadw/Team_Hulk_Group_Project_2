@@ -1,4 +1,3 @@
-
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
@@ -12,14 +11,22 @@ passport.use(
             usernameField: "email"
         },
         (email, password, done) => {
+
+            console.log("LOCAL STRATAGE YyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY")
+
             // When a user tries to sign in this code runs
             db.User.findOne({
                 where: {
                     email: email
                 }
             }).then(dbUser => {
-                // If there's no user with the given email
+
+                console.log(dbUser + "-------------------------------------------------------------------------")
+
                 if (!dbUser) {
+
+                    console.log("db user not found___________________________________")
+
                     return done(null, false, {
                         message: "Incorrect email."
                     });
@@ -30,6 +37,8 @@ passport.use(
                         message: "Incorrect password."
                     });
                 }
+
+                console.log("FOUND USER UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU")
                 // If none of the above, return the user
                 return done(null, dbUser);
             });
@@ -37,14 +46,24 @@ passport.use(
     )
 );
 
+
+
+
+
 // In order to help keep authentication state across HTTP requests,
 // Sequelize needs to serialize and deserialize the user
 // Just consider this part boilerplate needed to make it all work
 passport.serializeUser((user, cb) => {
+
+    console.log("serializing ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ")
+
     cb(null, user);
 });
 
 passport.deserializeUser((obj, cb) => {
+
+    console.log("deserializeing DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
+
     cb(null, obj);
 });
 

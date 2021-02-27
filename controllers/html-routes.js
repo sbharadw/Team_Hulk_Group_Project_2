@@ -7,13 +7,19 @@ const router = express.Router();
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 //landing page get
-router.get('/', (req, res) =>{
+router.get('/', (req, res) => {
+    if(req.user){
+        res.redirect("/homepage");
+    }
     res.sendFile(path.join(__dirname, "../public/login.html"))
 })
 
 //homepage item page get
-router.get('/homepage', (req, res) =>{
-    res.sendFile(path.join(__dirname, "../public/homepage.html"))
+router.get('/homepage', isAuthenticated, (req, res) =>{
+
+    console.log('homepage route sent SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS')
+
+res.sendFile(path.join(__dirname, "../public/homepage.html"))
 })
 
 //buy item page get
