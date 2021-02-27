@@ -1,4 +1,28 @@
-.around{
-    background-image: url(./City_Landscape_Background.webp);
-    border-radius: 30px;
+.bbackground{
+background-image: url(/Assets/background.jpg);
+background-size: cover;
+}
+
+.buy{
+    color: yellow !important;
+}
+
+.buttoncolor{
+    color: rgb(1, 1, 1);
+    background-color: rgb(0, 191, 255);
+}
+
+.logout{
+color: yellow !important;
+
+}
+.flamengo{
+    border-radius: 20px;
+    color: blueviolet;
+font-size: 100px;
+
+}
+.home{
+    color: rgb(255, 251, 0) !important;
+
 }
