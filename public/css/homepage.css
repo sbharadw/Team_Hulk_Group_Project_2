@@ -1,10 +1,4 @@
-.container , .text-center{
-    background-color:orange;
+.around{
+    background-image: url(./City_Landscape_Background.webp);
     border-radius: 30px;
-
 }
-
-.navbar-inverse.navbar, .navbar-inverse{
-    background-color: orangered;
-}
-
