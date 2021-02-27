@@ -1,4 +1,7 @@
-   const signUpForm = $("#signup");
+
+
+  const signUpForm = $("#signup");
+
     console.log(signUpForm);
 
   // When the signup button is clicked, we validate the email and password are not blank
@@ -71,6 +74,10 @@
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
   function signUpUser(email, password, firstName, lastName, cellNum, zip, address, city, state) {
+
+    console.log("step one")
+
+
     $.post("/api/users", {
       email: email,
       password: password,
@@ -82,19 +89,76 @@
       city: city,
       state: state,
     })
-      .then(() => {
-        window.location.replace("/homepage");
+      .then((res) => {
+
+        console.log(res)
+        console.log("last step")
+        // window.location.href = ("/homepage");
         // If there's an error, handle it by throwing up a bootstrap alert
     })
-
-
-    // $.post("/api/UserLogin", {
-    //   email: email,
-    //   password: password,
-    // })
-    //   .then(() => {
-    //     window.location.replace("/homepage");
-    //     // If there's an error, handle it by throwing up a bootstrap alert
-    //   })
   }
+  /* 
+  
+  Login script start------------------------------------------------------
+  ------------------------------------------------------------------------
+  
+  */
+
+
+ const login = $("#login");
+
+  // When the form is submitted, we validate there's an email and password entered
+  login.on("click", event => {
+
+    event.preventDefault();
+
+    const emailLog = $("#email");
+    const passwordLog = $("#password");
+
+    let email =  emailLog.val().trim();
+    console.log(email);
+
+    let password = passwordLog.val().trim();
+    console.log(password)
+
+    const loginData = {
+      email: email,
+      password: password
+    };
+
+    console.log(loginData.email + "    " + loginData.password);
+
+    if (!loginData.email || !login.password) {
+      console.log("ISSUE")
+      // return;
+    }
+
+    // If we have an email and password we run the loginUser function and clear the form
+    loginUser(loginData.email, loginData.password);
+
+
+  // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
+  function loginUser(email, password) {
+
+    console.log("LOGIN USER FUNCTION CALLED")
+
+    $.post("/api/login", {
+      email: email,
+      password: password
+    })
+      .then(() => {
+        console.log("Working")
+        window.location.href = ("/homepage");
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+  });
+
+
+
+
+
+
 
