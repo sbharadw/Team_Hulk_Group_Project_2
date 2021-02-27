@@ -16,8 +16,10 @@ const db = require('../models');
  * @param api url, function with request and response parameters 
  * @var dbUser - response for User table
  */
+
+
 router.post('/api/users', (req, res) => {
-  console.log("user req -------------------------" + req.body.first_name);
+  console.log("requested body ==========" + req.body)
 
   db.User.create({
     first_name: req.body.first_name,

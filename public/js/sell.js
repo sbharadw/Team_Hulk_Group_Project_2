@@ -1,7 +1,5 @@
-
-  const sellBtn = $("#sell");
-  console.log(sellBtn);
-
+const sellBtn = $("#sell");
+console.log(sellBtn);
 
 sellBtn.on("click", event => {
 
@@ -10,8 +8,8 @@ event.preventDefault();
 
 console.log("in sell js")
 
-  const username = $("#user-name").val().trim();
-  console.log("username"+username);
+  const userId = $("#user-id").val().trim();
+  console.log("username:" + userId);
 
   const itemName = $("#title").val().trim();
   console.log("itemName"+itemName);
@@ -29,41 +27,59 @@ console.log("in sell js")
   console.log("price"+price);
 
   const sellItemData = {
-    username: username,
+    userId: userId,
     itemName: itemName,
     itemDescription: itemDescription,
     itemType: itemType,
-    itemCategoryId: itemCategoryId,
-    price: price,
-
+    itemCategoryName: itemCategoryId,
+   // price: price
   };
 
+  const order = {
+  userId: userId,
+  price: price
+  }
+
   console.log(sellItemData);
+  console.log(order);
 
 
-  if (!sellItemData.price) {
+  if (!order.price) {
   console.log('no price')
     return;
   }
-  if(!itemName){
+  if(!sellItemData.itemName){
   console.log('enter item name');
     return;
   }
   // If we have an price and item name, run the sell function
-  sellItem(sellItemData.username, sellItemData.itemName,  sellItemData.itemDescription, sellItemData.itemType, sellItemData.itemCategoryId, sellItemData.price);
+  sellItem(sellItemData.userId, sellItemData.itemName,  sellItemData.itemDescription, sellItemData.itemType, sellItemData.itemCategoryName);
+  addToOrder(order.price);
 
 });
 
 
-function sellItem(username, itemName, itemDescription, itemType, itemCategoryId, price) {
+function sellItem(userId, itemName, itemDescription, itemType, itemCategoryName) {
   $.post("/api/sell", {
-    username: username,
+    user_id: userId,
     title: itemName,
     description: itemDescription,
     item_type: itemType,
-    item_category_id: itemCategoryId,
-    price: price,
+    item_category_id: itemCategoryName
+   // price: price
+  })
+    .then(() => {
+      window.location.replace("/homepage");
+  })
 
+}
+
+//Not working ---- Currently working on this please do not change
+
+function addToOrder(price) {
+  $.post("/api/order", {
+    //user_id: userId,
+    price: price
   })
     .then(() => {
       window.location.replace("/homepage");

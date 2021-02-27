@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATEONLY,//DATETIME is also option
       validate: {
         len: [8],
-        notEmpty: true,
+        notEmpty: false,
       },
     },
 
@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         len: [2, 10],
         isNumeric: true,
-        notEmpty: true,
+        notEmpty: false,
       },
     },
 
@@ -38,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         len: [2, 50],
         isAlphanumeric: true,
-        notEmpty: true,
+        notEmpty: false,
       },
     },
     shipping_city: {
@@ -46,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         len: [2, 20],
         isAlpha: true,
-        notEmpty: true,
+        notEmpty: false,
       },
     },
     shipping_state: {
@@ -54,7 +54,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         len: [2],
         isAlpha: true,
-        notEmpty: true,
+        notEmpty: false,
       },
     },
   });

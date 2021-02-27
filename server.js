@@ -12,6 +12,10 @@ const PORT = process.env.PORT || 8080;
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Sets up the Express app to handle data parsing
+//app.use(express.urlencoded({ extended: true }));
+//app.use(express.json());
+
 // Configure template Engine and Main Template File
 app.engine('handlebars', exphbs({
   defaultLayout: 'main',
