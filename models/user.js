@@ -27,14 +27,11 @@ module.exports = (sequelize, DataTypes) => {
       password: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate:{
-          len: [6, 100],
-          notEmpty: true
-        }
-      },
-      password: {
-        type: DataTypes.STRING,
-        allowNull: false,
+       // set(value) {
+          // Storing passwords in plaintext in the database is terrible.
+          // Hashing the value with an appropriate cryptographic hash function is better.
+       //   this.setDataValue('password', hash(value));
+      //  },
         validate:{
           len: [6, 10],
           notEmpty: true

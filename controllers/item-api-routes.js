@@ -5,6 +5,8 @@ const router = express.Router();
 // Grabbing our models
 const db = require('../models');
 
+const bodyparser = require('body-parser');
+
 // Routes
 
 // TABLE Item 
@@ -15,7 +17,9 @@ const db = require('../models');
  * @param api url, function with request and response parameters 
  * @var dbItem - response for Item table
  */
-router.post('/api/items', (req, res) => {
+router.post('/api/sell', (req, res) => {
+
+console.log("requested body ===========" + req.body)
     db.Item.create({
       title: req.body.title,
       description: req.body.description,
@@ -36,7 +40,10 @@ router.post('/api/items', (req, res) => {
       where: {
         id: req.params.id,
       },
-    }).then((dbItem) => res.json(dbItem));
+    }).then(
+      (dbItem) => res.json(dbItem)
+      
+      );
   });
 
   /**
@@ -48,6 +55,8 @@ router.post('/api/items', (req, res) => {
   router.get('/api/items', (req, res) => {
     db.Item.findAll({}).then((dbItem) => { res.json(dbItem)});
   });
+
+
   
   /**
    * @method

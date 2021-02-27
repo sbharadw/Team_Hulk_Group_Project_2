@@ -1,7 +1,4 @@
-
-
-
-  const signUpForm = $("#signup");
+   const signUpForm = $("#signup");
     console.log(signUpForm);
 
   // When the signup button is clicked, we validate the email and password are not blank

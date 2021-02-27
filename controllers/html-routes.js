@@ -18,7 +18,7 @@ router.get('/homepage', (req, res) =>{
 
 //buy item page get
 router.get('/buy', (req, res) =>{
-    res.render('../views/buy')
+    res.sendFile(path.join(__dirname, "../public/buy.html"))
 })
 
 //about page get
