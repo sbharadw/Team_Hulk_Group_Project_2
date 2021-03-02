@@ -1,12 +1,4 @@
-
-.container , .text-center{
-    background-color:orange;
-    border-radius: 30px;
+.bbackground{
+    background-image: url(../Assets/please.png) !important;
 
 }
-
-.navbar-inverse.navbar, .navbar-inverse{
-    background-color: orangered;
-}
-
-
