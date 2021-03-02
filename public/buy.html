@@ -22,47 +22,54 @@
   <!-- Nav Bar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <div class="container">
- 
-          <a class="navbar-brand text-light" href="#">FLAMENGO</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
 
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav nav navbar-right">
-              <li class="nav-item">
-                <a class="nav-link  home text-light" aria-current="page" href="./homepage.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link buy text-light" href="./buy.html">Buy</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link logout text-light" href="#">Log Out</a>
-              </li>
-            </ul>
-          </div>
+      <a class="navbar-brand text-light" href="#">FLAMENGO</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav nav navbar-right">
+          <li class="nav-item">
+            <a class="nav-link  home text-light" aria-current="page" href="./homepage.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link buy text-light" href="./buy.html">Buy</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link logout text-light" href="#">Log Out</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
   <!-- Nav Bar End -->
 
-  <!-- Search -->
-  <div class="container">
-    <div class="row">
-      <div class="input-group mb-3 center col-sm-4">
-        <input type="text" class="form-control" placeholder="Enter your Zipcode " aria-label=""
-          aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary btn-outline-warning btn-success mx-auto" type="button"
-          id="button-addon2">Search</button>
-      </div>
-    </div>
-  </div>
-  <!-- Search End -->
+  <br>
+  <br>
 
-  <!-- Left Categories -->
+  <!-- Main Container -->
   <div class="container">
     <div class="row">
-      <div class="col-sm-3">
+      <!-- Left COL -->
+
+      <div class="col-sm-3 mb-3">
+        <!-- Search -->
+        <div class="row">
+          <div class="col-sm-8">
+            <input type="text" class="form-control" placeholder="Enter your Zipcode " aria-label=""
+              aria-describedby="button-addon2">
+          </div>
+          <div class="col-sm-2">
+            <button class="btn btn-outline-secondary btn-outline-dark btn-primary" type="button"
+              id="button-addon2">Search</button>
+          </div>
+        </div>
+        <br>
+        <br>
+        <!-- Search End -->
+        <!-- Categories -->
         <div class="list-group">
           <a href="#" class="list-group-item list-group-item-action">NATION WIDE</a>
           <a href="#" class="list-group-item list-group-item-action">CARS</a>
@@ -70,8 +77,10 @@
           <a href="#" class="list-group-item list-group-item-action">CLOTHES</a>
           <a href="#" class="list-group-item list-group-item-action" tabindex="-1" aria-disabled="true">WINDOWS</a>
         </div>
+        <!-- Categories End -->
+
       </div>
-      <!-- Left Categories End -->
+      <!-- Left COL End -->
 
       <!-- items -->
       <div class="col-sm-9">
