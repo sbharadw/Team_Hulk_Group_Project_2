@@ -13,6 +13,7 @@
                       model should be. http://docs.sequelizejs.com/en/latest/api/datatypes/#string
  */
 
+const Sequelize = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
 
     const Item = sequelize.define('Item', {
@@ -39,6 +40,24 @@ module.exports = (sequelize, DataTypes) => {
           len: [2],
           notEmpty: true
         }
+      },
+      item_category: {
+        type: DataTypes.STRING,
+        validate:{
+          len: [2],
+          notEmpty: true
+        }
+      },
+      user_id: Sequelize.INTEGER,
+      createdAt: { 
+        type: DataTypes.DATE, 
+        allowNull: false,
+        defaultValue: Sequelize.literal("NOW()")
+      },
+      updatedAt: { 
+        type: DataTypes.DATE, 
+        allowNull: false,
+        defaultValue: Sequelize.literal("NOW()")
       }
 
     });
@@ -46,21 +65,29 @@ module.exports = (sequelize, DataTypes) => {
     Item.associate = (models) => {
         
         Item.belongsTo(models.User, {
-          foreignKey: {
-            allowNull: true,
-          },
+          as: "user",
+          foreignKey: user_id
         });
       };
 
-
-    Item.associate = (models) => {
+      Item.associate = (models) => {
         
-        Item.belongsTo(models.ItemCategory, {
-          foreignKey: {
-            allowNull: false,
-          },
+        Item.belongsTo(models.Order, {
+          as: "order",
+          onDelete: 'cascade',
+          foreignKey: "item_id"
         });
       };
+
+
+    // Item.associate = (models) => {
+        
+    //     Item.belongsTo(models.ItemCategory, {
+    //       foreignKey: {
+    //         allowNull: false,
+    //       },
+    //     });
+    //   };
     
     Item.associate = (models) => {
         

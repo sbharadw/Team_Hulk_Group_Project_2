@@ -19,14 +19,18 @@ const bodyparser = require('body-parser');
  */
 router.post('/api/sell', (req, res) => {
 
-console.log("requested body ===========" + req.body)
+console.log("requested body ===========" + JSON.stringify(req.user))
     db.Item.create({
       title: req.body.title,
       description: req.body.description,
       item_type: req.body.item_type,
-      user_id: req.body.user_id,
-      item_category_id: req.body.item_category_id,  
-    }).then((dbItem) => res.json(dbItem));
+      user_id: req.user.id,
+      item_category: req.body.item_category,  
+    })
+    .then((dbItem) =>{
+      return res.json(dbItem)
+    });
+
   });
   
   /**
@@ -40,6 +44,7 @@ console.log("requested body ===========" + req.body)
       where: {
         id: req.params.id,
       },
+      include: [db.User],
     }).then(
       (dbItem) => res.json(dbItem)
       

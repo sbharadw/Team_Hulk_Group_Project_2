@@ -1,3 +1,4 @@
+const Sequelize = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
 
     const Itemimage = sequelize.define('Itemimage', {
@@ -8,6 +9,16 @@ module.exports = (sequelize, DataTypes) => {
         isUrl: true,
         notEmpty: false
         }
+      },
+      createdAt: { 
+        type: DataTypes.DATE, 
+        allowNull: false,
+        defaultValue: Sequelize.literal("NOW()")
+      },
+      updatedAt: { 
+        type: DataTypes.DATE, 
+        allowNull: false,
+        defaultValue: Sequelize.literal("NOW()")
       }
 
     });
