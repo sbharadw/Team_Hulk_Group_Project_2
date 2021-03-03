@@ -46,11 +46,10 @@ console.log("in sell js")
   console.log('enter item title');
     return;
   }
-  // If we have an item name, run the sell function
+  // If we have an item name, run the sellItem function
   sellItem(sellItemData.itemTitle,  sellItemData.itemDescription, sellItemData.itemType, sellItemData.itemCategory, sellItemData.price);
    
   
-
 });
 
 
