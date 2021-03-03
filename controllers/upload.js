@@ -22,11 +22,11 @@ const uploadFiles = async (req, res) => {
             type: req.file.mimetype,
             name: req.file.originalname,
             data: fs.readFileSync(
-                dirname + "public/assets/photos/" + req.file.filename
+                dirname + "/public/assets/photos/" + req.file.filename
             ),
         }).then((image) => {
             fs.writeFileSync(
-                dirname + "public/assets/tmp/" + image.name,
+                dirname + "/public/assets/tmp/" + image.name,
                 image.data
             );
 
