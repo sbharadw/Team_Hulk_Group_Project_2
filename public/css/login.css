@@ -6,7 +6,12 @@
     background-attachment: fixed;
     background-size: cover;
   }
+
   
+  .loginFlamingo {
+
+   color: #f0720d8c!important
+  }
   .userLogin {
     text-align: center;
     margin: 0 auto;

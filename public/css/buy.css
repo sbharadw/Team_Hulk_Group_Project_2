@@ -1,4 +1,4 @@
 .bbackground{
-    background-image: url(../Assets/please.png) !important;
-
+    background-image: url(../../Assets/flamingo.jpg);
+    background-size: cover;
 }
