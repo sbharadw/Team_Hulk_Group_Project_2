@@ -1,6 +1,9 @@
 // Dependencies
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+const uploads = multer({dest: '/uploads'})
+const fs = require('fs')
 
 // Grabbing our models
 const db = require('../models');
@@ -99,6 +102,7 @@ console.log("requested body ===========" + JSON.stringify(req.user))
       }
     ).then((dbItem) => res.json(dbItem));
   });
+
 
 
 module.exports = router;
