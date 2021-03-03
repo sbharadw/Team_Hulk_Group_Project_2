@@ -1,0 +1,74 @@
+.loginFlamingo {
+    text-align: center;
+    background-image: url(../../Assets/flamingo.jpg);
+    background-size: cover;
+    background-position: center;
+    color: #685155;
+    border-radius: 0;
+    border-bottom: 10px solid #685155;
+  }
+
+  
+  .userLogin {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 90px 90px;
+  }
+  
+  .card {
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 5px;
+    border-width: 1px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
+    color: hsl(206, 17%, 28%);
+    font-size: 18px;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 30px 40px;
+  }
+  
+  .card-header::after {
+    content: " ";
+    display: block;
+    width: 100%;
+    background: #4aa2fa;
+    height: 2px;
+  }
+  
+  .card-body {
+    min-height: 100px;
+  }
+  
+  .card-footer {
+    text-align: center;
+  }
+  
+  .card-footer::before {
+    content: " ";
+    display: block;
+    width: 100%;
+    background: #c21b77;
+    height: 2px;
+  }
+  
+  .card-footer::after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+  
+  .btn {
+    border: none;
+    background-color: #4aa2fa;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
+      0px;
+    color: hsl(0, 0%, 100%);
+    display: inline-block;
+    font-size: 22px;
+    line-height: 22px;
+    margin: 16px 16px 16px 20px;
+    padding: 14px 34px;
+    text-align: center;
+    cursor: pointer;
+  }
