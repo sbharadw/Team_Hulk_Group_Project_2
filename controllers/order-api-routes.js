@@ -38,7 +38,7 @@ router.post('/api/orders', (req, res) => {
  * @param api url, function with request and response parameters 
  * @var dbOrder - response for Order table
  */
-router.get('/api/Orders/:id', (req, res) => {
+router.get('/api/orders/:id', (req, res) => {
   db.Order.findOne({
     where: {
       id: req.params.id,
@@ -52,7 +52,7 @@ router.get('/api/Orders/:id', (req, res) => {
  * @param api url, function with request and response parameters 
  * @var dbOrder - response for Order table
  */
-router.get('/api/Orders', (req, res) => {
+router.get('/api/orders', (req, res) => {
   db.Order.findAll({}).then((dbOrder) => res.json(dbOrder));
 });
 
@@ -62,7 +62,7 @@ router.get('/api/Orders', (req, res) => {
  * @param api url, function with request and response parameters 
  * @var dbOrder - response for Order table
  */
-router.delete('/api/Orders/:id', (req, res) => {
+router.delete('/api/orders/:id', (req, res) => {
   db.Order.destroy({
     where: {
       id: req.params.id,
@@ -76,7 +76,7 @@ router.delete('/api/Orders/:id', (req, res) => {
  * @param api url, function with request and response parameters 
  * @var dbOrder - response for Order table
  */
-router.put('/api/Orders/:id', (req, res) => {
+router.put('/api/orders/:id', (req, res) => {
   db.Order.update(
     {
       first_name: req.body.first_name,
