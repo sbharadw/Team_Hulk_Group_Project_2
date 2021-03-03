@@ -1,5 +1,3 @@
-
-
 $(document).ready(() => {
     let items;
     let user;

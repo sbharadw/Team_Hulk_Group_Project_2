@@ -1,151 +1,198 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-    <link href="../public/css/homepage.css" rel="stylesheet">
-    <title>FLAMENGO</title>
-  </head>
-  <body class="bbackground">
-    <div class="jumbotron">
-      <div class="container text-center">
-        <h1 class="flamengo">Flamengo</h1>      
-        <p>Best Priced, Vission & Values</p>
-      </div>
-    </div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">FLAMENGO</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active home" aria-current="page" href="./homepage.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link buy" href="./buy.html">Buy</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link logout" href="#">Log Out</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <div class="card m-lg-5"  >
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="../Assets/sally.jpg" width="600" height="500"  alt="sallyMay" style= "widows: 75px"; >
-        </div>
-        <div class="col-md-10 righty">
-          <div class="card-body">
-            <h5 class="card-title">Sally May</h5>
-            <p class="card-text text-dark sally">Sally May, I have been selling for about 3 Years.</p>
-          <button type="button" class="btn buttoncolor" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Sell Modal</button>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">User Information</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body modalcolor">
-        <form>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Title:</label>
-            <input type="text" class="form-control" id="title">
-          </div>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Description:</label>
-            <input type="text" class="form-control" id="description">
-          </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+    integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+    crossorigin="anonymous"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <link href="../public/css/homepage.css" rel="stylesheet">
+  <title>FLAMENGO</title>
+</head>
 
-          <div class="form-group" class="mb-3">
-            <label>Item Category</label>
-            <select class="form-control">
-              <option>Select One</option>
-              <option id="item-category">Auto-Mobile</option>
-              <option id="item-category">Furniture</option>
-              <option id="item-category">Sports</option>
-              <option id="item-category">Electronics</option>
-              <option id="item-category">Clothing</option>
-              <option id="item-category">Others</option>
-            </select>
-        </div>
+<body class="bbackground">
 
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Type:</label>
-            <input type="text" class="form-control" id="item-type">
-          </div>
-          <div class="mb-3">
-            <label  for="recipient-name" class="col-form-label">Price:</label>
-            <input type="text" class="form-control" id="price">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="sell">Complete</button>
-      </div>
+  <div class="jumbotron">
+    <!-- Banner -->
+    <div class="container text-center">
+      <h1>Flamengo</h1>
+      <p>Best Price & Values</p>
     </div>
   </div>
-</div>
-        </div>
-        </div>
+
+  <!-- Nav Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container">
+
+      <a class="navbar-brand text-light" href="#">FLAMENGO</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav nav navbar-right">
+          <li class="nav-item">
+            <a class="nav-link  home text-light" aria-current="page" href="./homepage.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link buy text-light" href="./buy.html">Buy</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link logout text-light" href="#">Log Out</a>
+          </li>
+        </ul>
       </div>
     </div>
-    <div id="carouselExampleControls" class="carousel slide mx-auto" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="../Assets/productcategorycarousel.jpg" class="d-block w-50 mx-auto" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="../Assets/productcategorycarousel.jpg" class="d-block w-50 mx-auto" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="../Assets/productcategorycarousel.jpg" class="d-block w-50 mx-auto" alt="...">
-        </div>
+  </nav>
+  <!-- Nav Bar End -->
+
+  <br>
+  <br>
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <!-- User -->
+    <div class="row">
+
+      <!-- User Info -->
+      <div class="col-md-3 col-SM-3">
+        <img src="../Assets/sally.jpg" width="200" height="100" alt="sallyMay" style="widows: 75px" ;>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+
+      <div class="card-body">
+        <h5 class="card-title">Sally May</h5>
+        <p class="card-text text-dark sally">Sally May, I have been selling for about 3 Years.</p>
+        <button type="button" class="btn buttoncolor" data-bs-toggle="modal" data-bs-target="#exampleModal"
+          data-bs-whatever="@getbootstrap">Sell Modal</button>
+      </div>
+    </div>
+    <!-- User Info row End -->
+
+    <!-- carousel-->
+    <div class="row">
+      <div class="card col-md-12 col-sm-12">
+        <div id="carouselExampleControls" class="carousel slide mx-auto" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="../Assets/productcategorycarousel.jpg" class="d-block w-50 mx-auto" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="../Assets/productcategorycarousel.jpg" class="d-block w-50 mx-auto" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="../Assets/productcategorycarousel.jpg" class="d-block w-50 mx-auto" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+      </div>
     </div>
 
 
 
-   <!-- Footer -->
-   <footer class="footer font-small fixed-bottom bg-dark footer-copyright">
+    <!-- SELL MODAL -->
+    <div class="row">
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">User Information</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body modalcolor">
+              <form>
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">Title:</label>
+                  <input type="text" class="form-control" id="title">
+                </div>
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">Description:</label>
+                  <input type="text" class="form-control" id="description">
+                </div>
+
+                <div class="form-group" class="mb-3">
+                  <label>Item Category</label>
+                  <select class="form-control">
+                    <option>Select One</option>
+                    <option id="item-category">Auto-Mobile</option>
+                    <option id="item-category">Furniture</option>
+                    <option id="item-category">Sports</option>
+                    <option id="item-category">Electronics</option>
+                    <option id="item-category">Clothing</option>
+                    <option id="item-category">Others</option>
+                  </select>
+                </div>
+
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">Type:</label>
+                  <input type="text" class="form-control" id="item-type">
+                </div>
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">Price:</label>
+                  <input type="text" class="form-control" id="price">
+                </div>
+              </form>
+
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="sell">Complete</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!-- MODAL end -->
+    </div>
+  </div>
+  <!-- SEL modal row end  -->
+
+  </div><br>
+  <!-- main container end -->
+
+  <!-- Footer -->
+  <footer class="footer font-small fixed-bottom bg-dark footer-copyright">
     <!-- Copyright -->
-    <div class="col-md-12 col-sm-12 col-xs-12 text-center py-3 text-light">
-        © 2021 Copyright:HANSY
+    <div class="col-md-12 col-sm-12 col-xs-12 text-center py-1 text-light">
+      © 2021 Copyright:HANSY
     </div>
     <!-- End Copyright -->
-</footer>
-<!-- End Footer -->
+  </footer>
+  <!-- End Footer -->
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-<script src= "./js/buy.js"></script>
-<script src= "./js/sell.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
-  </body>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script src="./js/buy.js"></script>
+  <script src="./js/sell.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+    integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+    integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+    crossorigin="anonymous"></script>
+
+</body>
+
 </html>
-
-
-   
-
-
-
-
