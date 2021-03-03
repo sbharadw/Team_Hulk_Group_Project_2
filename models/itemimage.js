@@ -2,26 +2,32 @@ const Sequelize = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
 
     const Itemimage = sequelize.define('Itemimage', {
+    type: {
+            type: DataTypes.STRING,
+    },
 
-      url: {
-        type: DataTypes.STRING,
-        validate:{
-        isUrl: true,
-        notEmpty: false
-        }
-      },
-      createdAt: { 
+    name: {
+            type: DataTypes.STRING,
+    },
+
+    data: {
+            type: DataTypes.BLOB("long"),
+    },
+
+    createdAt: { 
         type: DataTypes.DATE, 
         allowNull: false,
         defaultValue: Sequelize.literal("NOW()")
-      },
-      updatedAt: { 
+    },
+
+    updatedAt: { 
         type: DataTypes.DATE, 
         allowNull: false,
         defaultValue: Sequelize.literal("NOW()")
-      }
+    }
 
-    });
+});
+
 
     Itemimage.associate = (models) => {
         
@@ -35,3 +41,5 @@ module.exports = (sequelize, DataTypes) => {
     return Itemimage;
   
 };
+
+
