@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const exphbs = require('express-handlebars');
 const session = require("express-session");
@@ -14,8 +15,8 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Sets up the Express app to handle data parsing
-//app.use(express.urlencoded({ extended: true }));
-//app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Configure template Engine and Main Template File
 app.engine('handlebars', exphbs({
@@ -48,3 +49,6 @@ app.use(express.static('public'));
 db.sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
 });
+
+
+//Test 

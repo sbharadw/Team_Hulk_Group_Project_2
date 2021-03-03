@@ -13,7 +13,7 @@
                       model should be. http://docs.sequelizejs.com/en/latest/api/datatypes/#string
  */
 
-
+const Sequelize = require('sequelize');
 const bcrypt = require("bcryptjs");
 
 module.exports = (sequelize, DataTypes) => {
@@ -105,6 +105,16 @@ module.exports = (sequelize, DataTypes) => {
             });
             return value;
         }}
+      },
+      createdAt: { 
+        type: DataTypes.DATE, 
+        allowNull: false,
+        defaultValue: Sequelize.literal("NOW()")
+      },
+      updatedAt: { 
+        type: DataTypes.DATE, 
+        allowNull: false,
+        defaultValue: Sequelize.literal("NOW()")
       }
     });
 
@@ -122,23 +132,13 @@ module.exports = (sequelize, DataTypes) => {
     );
   });
 
-    User.associate = (models) => {
-        User.hasOne(models.Seller, {
-          onDelete: 'cascade',
-        });
-      };
-
-    User.associate = (models) => {
-        
-        User.hasOne(models.Buyer, {
-          onDelete: 'cascade',
-        });
-      };
 
     User.associate = (models) => {
         
         User.hasMany(models.Item, {
+          as: "item",
           onDelete: 'cascade',
+          foreignKey: "user_id"
         });
       };
 

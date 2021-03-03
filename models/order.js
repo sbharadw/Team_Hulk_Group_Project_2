@@ -13,73 +13,53 @@
                       model should be. http://docs.sequelizejs.com/en/latest/api/datatypes/#string
  */
 
+const Sequelize = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   const Order = sequelize.define("Order", {
-    date: {
-      type: DataTypes.DATEONLY,//DATETIME is also option
-      validate: {
-        len: [8],
-        notEmpty: false,
-      },
-    },
-
     price: {
       type: DataTypes.INTEGER, //
       allowNull: false,
       validate: {
-        len: [2, 10],
         isNumeric: true,
         notEmpty: false,
       },
     },
+    seller_id: {
+      type: DataTypes.INTEGER, //
+      allowNull: false,
+      validate: {
+        isNumeric: true,
+      },
+    },
 
-    shipping_address: {
-      type: DataTypes.STRING,
+    buyer_id: {
+      type: DataTypes.INTEGER, //
+      allowNull: true,
       validate: {
-        len: [2, 50],
-        isAlphanumeric: true,
-        notEmpty: false,
+        isNumeric: true,
       },
     },
-    shipping_city: {
-      type: DataTypes.STRING,
-      validate: {
-        len: [2, 20],
-        isAlpha: true,
-        notEmpty: false,
-      },
+    
+    item_id: Sequelize.INTEGER,
+
+    createdAt: { 
+      type: DataTypes.DATE, 
+      allowNull: false,
+      defaultValue: Sequelize.literal("NOW()")
     },
-    shipping_state: {
-      type: DataTypes.STRING,
-      validate: {
-        len: [2],
-        isAlpha: true,
-        notEmpty: false,
-      },
-    },
+    updatedAt: { 
+      type: DataTypes.DATE, 
+      allowNull: false,
+      defaultValue: Sequelize.literal("NOW()")
+    }
   });
 
-  Order.associate = (models) => {
-    Order.belongsTo(models.Seller, {
-      foreignKey: {
-        allowNull: true,
-      },
-    });
-  };
-
-  Order.associate = (models) => {
-    Order.belongsTo(models.Buyer, {
-      foreignKey: {
-        allowNull: true,
-      },
-    });
-  };
 
   Order.associate = (models) => {
     Order.belongsTo(models.Item, {
-      foreignKey: {
-        allowNull: true,
-      },
+      as: "item",
+      foreignKey: "item_id",
+      notEmpty: true
     });
   };
 
