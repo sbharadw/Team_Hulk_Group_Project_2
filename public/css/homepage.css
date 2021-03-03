@@ -1,5 +1,5 @@
 .bbackground{
-    background-image: url(/Assets/please.png);
+    background-image: url(../../Assets/flamingo.jpg);
     background-size: cover;
     }
     
@@ -33,4 +33,3 @@
         color: rgb(255, 251, 0) !important;
     
     }
-    
