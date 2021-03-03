@@ -1,4 +1,21 @@
-.card {
+.loginFlamingo {
+    text-align: center;
+    background-image: url(../../Assets/flamingo.jpg);
+    background-size: cover;
+    background-position: center;
+    color: #685155;
+    border-radius: 0;
+    border-bottom: 10px solid #685155;
+  }
+
+  
+  .userLogin {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 90px 90px;
+  }
+  
+  .card {
     background-color: hsl(0, 0%, 100%);
     border-radius: 5px;
     border-width: 1px;
