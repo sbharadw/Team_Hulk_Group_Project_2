@@ -188,8 +188,5 @@ function loginUser(email, password) {
       console.log("Working")
       window.location.href = ("/homepage");
     })
-    .catch(err => {
-      console.log(err);
-    });
 }
 });
