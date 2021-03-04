@@ -1,5 +1,5 @@
 .bbackground{
-    background-color:#f3cfca;
+    background-color:#ffffff;
     background-size: cover;
     }
     
@@ -33,3 +33,7 @@
         color: rgb(255, 251, 0) !important;
     
     }
+    body {
+        font-family:Roboto, Raleway, sans-serif;
+        background-color: #f9fbfd;
+      }
