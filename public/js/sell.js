@@ -38,16 +38,47 @@ console.log("in sell js")
   console.log(sellItemData);
   
 
+  let errors = 0;
+  let item_incomplete = $("#item_incomplete");
+  let errorNum = $("#errorNum")
+  item_incomplete.empty();
+  errorNum.empty();
 
-  if (!sellItemData.price) {
-  console.log('no price')
-   return;
+  if (sellItemData.itemTitle == ""){
+    item_incomplete.append("Please enter an Item Title" + `<br>`);
+    errors ++;
+  }
+  if (sellItemData.itemDescription == ""){
+    item_incomplete.append("Please enter an Item Discription" + `<br>`);
+    errors ++;
+  }
+  if (sellItemData.itemType == ""){
+    item_incomplete.append("Please enter an Item Type" + `<br>`);
+    errors ++;
+  }
+  if (sellItemData.catagory == ""){
+    item_incomplete.append("Please select a catagory" + `<br>`);
+    errors ++;
+  }
+  if (sellItemData.price == ""){
+    item_incomplete.append("Please enter an Item Price" + `<br>`);
+    errors ++;
   }
 
-  if(!sellItemData.itemTitle){
-  console.log('enter item title');
-    return;
+  console.log(errors)
+  if(errors > 0){
+    let errorNum = $("#errorNum")
+    if(errors === 1){
+      errorNum.append(`${errors} error:`)
+      return
+    }else{
+      errorNum.append(`${errors} errors:`)
+      return
+    }
   }
+
+
+
   // If we have an item name, run the sellItem function
   sellItem(sellItemData.itemTitle,  sellItemData.itemDescription, sellItemData.itemType, sellItemData.itemCategory, sellItemData.price);
    

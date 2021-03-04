@@ -58,7 +58,7 @@ $(document).ready(() => {
                     // var carouselDiv = document.createElement('div');
                     // carouselDiv.setAttribute('class', 'carousel-item active'); 
                     var card = document.createElement('div');
-                    card.setAttribute('class', 'card text-white bg-primary mb-3 carousel-item');
+                    card.setAttribute('class', 'card bg-primary mb-3 carousel-item');
                     card.classList.add('results-card-width');
                     var cardImage = document.createElement('img');
                     cardImage.setAttribute('class', 'img-fluid');

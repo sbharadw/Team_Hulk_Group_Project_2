@@ -93,6 +93,10 @@ const state = $("#state").val().trim();
 console.log(errors)
   if(errors > 0){
     let errorNum = $("#errorNum")
+    if(errors === 1){
+      errorNum.append(`${errors} error:`)
+      return
+    }
     errorNum.append(`${errors} errors:`)
     return
   }
