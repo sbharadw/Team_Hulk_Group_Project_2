@@ -33,7 +33,7 @@
         color: rgb(255, 251, 0) !important;
     
     }
-    body {
+    .card-body {
         font-family:Roboto, Raleway, sans-serif;
         background-color: #f9fbfd;
       }
