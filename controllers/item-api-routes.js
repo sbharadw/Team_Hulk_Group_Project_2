@@ -2,7 +2,8 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const uploads = multer({dest: '/uploads'})
+// const uploads = multer({dest: '/uploads'})
+var uploads = multer({ dest: 'uploads/' })
 const fs = require('fs')
 
 // Grabbing our models

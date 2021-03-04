@@ -54,9 +54,11 @@ $(document).ready(() => {
                             .then((orderData) => {
                                    //Create HTML elements which contain and display some of the selected API info. from the API response
                     price = orderData.price;
-                    var section = document.querySelector('#section');
+                    var section = document.querySelector('.carousel-inner');
+                    // var carouselDiv = document.createElement('div');
+                    // carouselDiv.setAttribute('class', 'carousel-item active'); 
                     var card = document.createElement('div');
-                    card.setAttribute('class', 'card text-white bg-primary mb-3');
+                    card.setAttribute('class', 'card text-white bg-primary mb-3 carousel-item');
                     card.classList.add('results-card-width');
                     var cardImage = document.createElement('img');
                     cardImage.setAttribute('class', 'img-fluid');
@@ -89,6 +91,7 @@ $(document).ready(() => {
                     p2Description.innerHTML = "Item description: " + itemDescription;
                     userInfo.innerHTML = "Seller: " + userString;
                     priceInfo.innerHTML = "Price: $" + price;
+                    // carouselDiv.append(card);
                     card.append(cardBody);
                     cardBody.append(hTitle, pCategory, pType, p2Description, userInfo, priceInfo, purchaseBtn);
                     section.append(card);
@@ -105,7 +108,7 @@ $(document).ready(() => {
     };
 
 
-    getItems();
+     getItems();
 
     // const getImages = (itemId) => {
 
@@ -121,24 +124,11 @@ $(document).ready(() => {
     //             console.log('Success in getting images for items:', data);
 
     //         }).catch((error) => console.error("Error:", error));
-
-    //         return images;
+            
     // }
 
 
+
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
