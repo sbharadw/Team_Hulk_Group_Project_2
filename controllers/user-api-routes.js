@@ -90,10 +90,10 @@ router.get('/api/users', (req, res) => {
  * @var dbUser - response for User table
  */
 
-router.delete('/api/users/:id', (req, res) => {
+router.delete('/api/users/me', (req, res) => {
   db.User.destroy({
     where: {
-      id: req.params.id,
+      id: req.user.id,
     },
   }).then((dbUser) => res.json(dbUser));
 });
