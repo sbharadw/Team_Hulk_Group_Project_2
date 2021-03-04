@@ -1,17 +1,17 @@
-# Team_Hulk_Group_Project_2
+# Team Hulk Project 2
 
 <h1>Group Name</h1>  - <b>Team HULK</b>
 
-<h1>Website Name</h1> - <b>TBD</b>
+<h1>Website Name</h1> - <b>Flamengo</b>
 
 <h1>Project Description</h1> - A marketplace to allow users to buy and sell products. 
 
 
-## ERD 
+## Entity Relationship Diagram
 
 ![mockup image](public/assets/erd.png)
 
-## Flowchart
+## Data Flow Diagram
 
 ![mockup image](public/assets/flowchart.png)
 
