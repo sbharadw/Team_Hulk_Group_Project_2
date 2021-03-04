@@ -4,6 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&family=Raleway&family=Roboto:wght@300&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
@@ -40,6 +42,7 @@
             <a class="nav-link   text-light" aria-current="page" href="./homepage.html">Home</a>
           </li>
           <li class="nav-item">
+
             <a class="nav-link  text-light" href="/aboutus">About Us</a>
         </li>
           <li class="nav-item">
@@ -47,7 +50,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link  text-light" id="delete-user" href="#">Delete Account</a>
-        </li>
+          </li>
           <li class="nav-item">
             <a class="nav-link  text-light" href="/logout">Log Out</a>
           </li>
@@ -57,42 +60,31 @@
   </nav>
   <!-- Nav Bar End -->
 
-  <br>
-  <br>
-
   <!-- Main Container -->
   <div class="container">
 
-    <!-- User -->
     <div class="row">
-
-      <!-- User Info -->
-      <div class="col-md-3 col-sm-3">
-        <img src="./assets/open.png" width="300" height="300" alt="open" style="widows: 75px" ;>
-      </div>
-
-      <!-- <div class="col-md-9 col-sm-9">
-        <img src="./assets/flamingoPlants.png" width="400" height="300" alt="open" style="widows: 75px" ;>
-      </div> -->
-      <div class="col-md-9 col-sm-9">
-        <img src="./assets/flamingoArt.JPG" class = "rounded img-fluid"  alt="open" style="widows: 75px" ;>
-      </div>
-      <div class="card-body">
+      <div class="card-body text-center">
         <h5 class="card-title">Flemongo Shop Open</h5>
-        <p class="card-text text-dark sally">You can find all you are looking for, better prices, high end brands so on </p>
-        <button type="button" class="btn buttoncolor" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        <p class="card-text text-dark sally">You can find all you are looking for, better prices, high-end brands and
+          more </p>
+
+        <button type="button" class="btn btn-lg buttoncolor " data-bs-toggle="modal" data-bs-target="#exampleModal"
           data-bs-whatever="@getbootstrap">Sell Now</button>
       </div>
+
+      <img src="./assets/shopping.jpg" class="img-fluid. max-width: 100% height: auto;" alt="used" ;>
+
     </div>
-    <!-- User Info row End -->
+
 
     <!-- carousel-->
     <div class="row">
       <div class="card col-md-12 col-sm-12">
         <div id="carouselExampleControls" class="carousel slide mx-auto" data-bs-ride="carousel">
           <div class="carousel-inner">
-            
-             <div class="carousel-item active">
+
+            <div class="carousel-item active">
               <img src="./assets/welcomeToStore.jpg" class="d-block w-450 h-450" alt="...">
             </div>
 
@@ -161,22 +153,12 @@
 
 
 
-              <form
-              class="mt-4"
-              action="/upload"
-              method="POST"
-              enctype="multipart/form-data"
-            >
-              <div class="form-group">
-                <input
-                  type="file"
-                  name="file"
-                  id="input-files"
-                  class="form-control-file border"
-                />
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+              <form class="mt-4" action="/upload" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                  <input type="file" name="file" id="input-files" class="form-control-file border" />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
 
             </div>
 
@@ -211,7 +193,7 @@
   <script src="./js/buy.js"></script>
   <script src="./js/sell.js"></script>
   <script src="./js/home.js"></script>
-  <script src = "./js/imageUpload.js"></script>
+  <script src="./js/imageUpload.js"></script>
   <script src='./js/delete.js'></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
