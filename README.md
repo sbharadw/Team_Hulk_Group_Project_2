@@ -9,11 +9,11 @@
 
 ## ERD 
 
-![mockup image](Assets/erd.png)
+![mockup image](public/assets/erd.png)
 
 ## Flowchart
 
-![mockup image](Assets/flowchart.png)
+![mockup image](public/assets/flowchart.png)
 
 ## Authors
 This application was created Satyam, Hanna, Andy, Natalia and Yaze
