@@ -34,8 +34,8 @@ router.get('/buy', (req, res) =>{
 })
 
 //about page get
-router.get('/about', (req, res) =>{
-    res.render('../views/about')
+router.get('/aboutus', (req, res) =>{
+    res.render('../views/aboutus')
 })
 
 //forgot password page get

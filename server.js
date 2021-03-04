@@ -25,12 +25,12 @@ app.use(express.static('public'));
 app.use(express.static('Assets'))
 
 // Configure template Engine and Main Template File
-// app.engine('handlebars', exphbs({
-//   defaultLayout: 'main',
-//   extname: '.handlebars',
-// }));
-// // Setting template Engine
-// app.set('view engine', 'handlebars');
+app.engine('handlebars', exphbs({
+  defaultLayout: 'main',
+  extname: '.handlebars',
+}));
+// Setting template Engine
+app.set('view engine', 'handlebars');
 
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
