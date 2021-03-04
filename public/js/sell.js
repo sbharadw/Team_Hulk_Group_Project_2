@@ -1,6 +1,8 @@
 const sellBtn = $("#sell");
 console.log(sellBtn);
 
+console.log("sell js is loading")
+
 sellBtn.on("click", event => {
 
 

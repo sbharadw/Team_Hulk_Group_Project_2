@@ -1,7 +1,7 @@
 
 
   body {
-    background-image: url('../../Assets/flamingo.jpg');
+    background-image: url("../assets/flamingo.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;

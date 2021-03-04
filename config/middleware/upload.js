@@ -15,7 +15,7 @@ destination: (req, file, cb) => {
 
     console.log(dirname)
 
-    cb(null, dirname + "/Assets/photos");
+    cb(null, dirname + "/public/assets/photos");
 },
 filename: (req, file, cb) => {
     cb(null, `${Date.now()}-flam-${file.originalname}`);

@@ -4,6 +4,7 @@ const exphbs = require('express-handlebars');
 const session = require("express-session");
 const passport = require("passport");
 const bodyParser = require('body-parser');
+const path = require('path');
 // const helpers = require('handlebars-helpers')
 
 
@@ -18,13 +19,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
+// Static directory
+app.use(express.static('public'));
+app.use(express.static('Assets'))
+
 // Configure template Engine and Main Template File
-app.engine('handlebars', exphbs({
-  defaultLayout: 'main',
-  extname: '.handlebars',
-}));
-// Setting template Engine
-app.set('view engine', 'handlebars');
+// app.engine('handlebars', exphbs({
+//   defaultLayout: 'main',
+//   extname: '.handlebars',
+// }));
+// // Setting template Engine
+// app.set('view engine', 'handlebars');
 
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
@@ -41,8 +47,6 @@ app.use(require('./controllers/user-api-routes.js'));
 // Requiring our models for syncing
 const db = require('./models');
 
-// Static directory
-app.use(express.static('public'));
 
 
 // Syncing our sequelize models and then starting our Express app

@@ -54,15 +54,50 @@ const state = $("#state").val().trim();
 
   console.log(userData);
 
+  let errors = 0;
+  let register_error = $("#register_error");
+  let errorNum = $("#errorNum")
+  register_error.empty();
+  errorNum.empty();
 
-  if (!userData.email || !userData.password) {
-  //console.log('no email / password')
-    return;
+
+  if (userData.email === ""){
+    register_error.append("Please enter a valid email" + `<br>`);
+    errors ++;
   }
-  if(passwordInput != passwordConfirm){
-  // console.log('password error');
-    return;
+  if (userData.password === "" || userData.password.length < 6){
+    register_error.append("Please enter a valid password(greater than 6 characters)" + `<br>`);
+    errors ++;
   }
+  if (userData.password !== passwordConfirm){
+    register_error.append("Password confirmation incorrect" + `<br>`);
+    errors ++;
+  }
+  if (userData.firstName === ""){
+    register_error.append("Please enter a first name" + `<br>`);
+    errors ++;
+  }
+  if (userData.lastName === ""){
+    register_error.append("Please enter a last name" + `<br>`);
+    errors ++;
+  }
+  if (userData.cellNum === "" || userData.cellNum.length < 10 || userData.cellNum.length > 11){
+    register_error.append("Please enter a valid phone number" + `<br>`);
+    errors ++;
+  }
+  if (userData.zip === "" || userData.zip.length !== 5){
+    register_error.append("Please enter a valid zip code" + `<br>`);
+    errors ++;
+  }
+
+console.log(errors)
+  if(errors > 0){
+    let errorNum = $("#errorNum")
+    errorNum.append(`${errors} errors:`)
+    return
+  }
+
+
   // If we have an email and password, run the signUpUser function
   signUpUser(userData.email, userData.password, userData.firstName, userData.lastName, userData.cellNum, userData.zip, userData.address, userData.city, userData.state);
 
@@ -90,7 +125,11 @@ function signUpUser(email, password, firstName, lastName, cellNum, zip, address,
 
       console.log(res)
       console.log("last step")
-      // window.location.href = ("/homepage");
+      document.getElementById('id02').style.display='none'
+      document.getElementById('id01').style.display='block'
+
+      emailInputVal = $("#email");
+      emailInputVal.val(`${email}`)
       // If there's an error, handle it by throwing up a bootstrap alert
   })
 }
@@ -136,6 +175,8 @@ login.on("click", event => {
 
 // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
 function loginUser(email, password) {
+
+  let login_error = $("#login_error");
 
   console.log("LOGIN USER FUNCTION CALLED")
 
