@@ -7,5 +7,10 @@ buyBtn.on("click", event =>{
   window.location.replace("/buy");
 });
 
+   
+
+  
+  
+
 
   
